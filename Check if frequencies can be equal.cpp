@@ -1,5 +1,14 @@
 // C++ CODE
 
+	//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+//User function template for C++
+class Solution{
+public:	
 	bool sameFreq(string s)
 	{
 	    // code here 
@@ -18,6 +27,24 @@
 	    if(mnCount==1 and mn==1 and mxCount+mnCount==mm.size())return true;
 	    return false;
 	}
+};
+
+//{ Driver Code Starts.
+int main(){
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        Solution ob;
+        cout<<ob.sameFreq(s)<<endl;
+    }
+}
+
+
+
+// } Driver Code Ends
 
 
 
