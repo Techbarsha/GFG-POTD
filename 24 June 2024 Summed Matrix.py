@@ -3,11 +3,11 @@
 class Solution:
     def sumMatrix(self, n, q):
         # code here 
-        # Compute the valid range for i
-        start = max(1, q - n)
-        end = min(n, q - 1)
-        
-        # Calculate the number of valid i's
-        if start > end:
-            return 0
-        return end - start + 1
+      low = max(1, q - n)
+      high = min(n, q - 1)
+    
+    # If the range is valid, calculate the count
+      if low > high:
+         return 0
+      else:
+         return high - low + 1
