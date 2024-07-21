@@ -1,34 +1,27 @@
 class Solution:
     def findMaxProduct(self, arr):
-        MOD = 10**9 + 7
-        
-        if len(arr) == 1:
-            return arr[0] % MOD
-        
-        negatives = []
-        positives = []
+        # code edutechbarsha
+         MOD = 10**9 + 7
+        prod = 1
+        maxi = float('-inf')
         zero_count = 0
+        negative_count = 0
         
         for num in arr:
-            if num > 0:
-                positives.append(num)
-            elif num < 0:
-                negatives.append(num)
+            if num != 0:
+                prod = (prod * num) % MOD
+                if num < 0:
+                    negative_count += 1
+                    maxi = max(maxi, num)
             else:
                 zero_count += 1
         
-        if len(negatives) == 0 and len(positives) == 0:
+        if zero_count == len(arr):
             return 0
         
-        negatives.sort()
+        if negative_count % 2 != 0:
+            if negative_count == 1 and zero_count > 0 and negative_count + zero_count == len(arr):
+                return 0
+            prod = (prod * pow(maxi, MOD-2, MOD)) % MOD
         
-        if len(negatives) % 2 != 0:
-            if len(negatives) == 1 and len(positives) == 0:
-                return 0 if zero_count > 0 else negatives[0] % MOD
-            negatives.pop()
-        
-        product = 1
-        for num in positives + negatives:
-            product = (product * num) % MOD
-        
-        return product % MOD
+        return prod % MOD
