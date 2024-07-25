@@ -1,9 +1,3 @@
-class Node:
-    def __init__(self, val):
-        self.data = val
-        self.left = None
-        self.right = None
-
 class Solution:
     def sortedArrayToBST(self, nums):
         # code here
